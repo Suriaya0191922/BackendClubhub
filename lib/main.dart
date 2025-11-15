@@ -10,6 +10,9 @@ import 'screens/welcome_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/home_screen.dart';
+// 🆕 New imports for Profile and Events screens
+import 'screens/profile_screen.dart';
+import 'screens/my_events_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -70,7 +73,12 @@ class ClubHubApp extends StatelessWidget {
         '/welcome': (context) => const WelcomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
-        '/home': (context) => const HomeScreen(student: null),
+        // Note: The student property of HomeScreen must be null for the route to be const.
+        '/home': (context) => const HomeScreen(student: null), 
+        // ❌ REMOVED 'const' to fix the error in profile_screen.dart
+        '/profile': (context) => ProfileScreen(), 
+        // ❌ REMOVED 'const' to prevent a potential future error in MyEventsScreen
+        '/my_events': (context) => MyEventsScreen(),
       },
     );
   }
