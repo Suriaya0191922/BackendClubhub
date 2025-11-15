@@ -30,8 +30,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 60, 24, 24),
+                    padding: const EdgeInsets.fromLTRB(24, 40, 24, 16), // reduced top & bottom padding
                     child: Column(
+                      mainAxisSize: MainAxisSize.min, // key fix to prevent overflow
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
